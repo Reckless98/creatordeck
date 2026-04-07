@@ -9,17 +9,17 @@ const productPricing = [
   {
     name: "Solo Creator",
     price: "$29/mo",
-    description: "For one creator brand with template access, examples, and sponsor-ready exports."
+    description: "For one creator brand with the core builder, templates, and preview routes."
   },
   {
     name: "Studio",
     price: "$79/mo",
-    description: "For creator managers and boutique teams handling multiple kits with reusable package structures."
+    description: "For creator managers and small teams handling multiple kits and shared package structures."
   },
   {
     name: "Agency",
     price: "$149/mo",
-    description: "For talent rosters, white-label styling, and polished decks for internal and external presentations."
+    description: "For larger rosters, white-label presentation, and more structured internal review."
   }
 ];
 
@@ -31,10 +31,10 @@ export function PricingShowcase() {
           Pricing examples
         </Badge>
         <h1 className="font-display text-5xl font-semibold leading-none text-foreground">
-          Sponsor package examples with a clean monetization angle.
+          Sample sponsor packages and product pricing.
         </h1>
         <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-          CreatorDeck helps creators package themselves like premium inventory. Below are bundled sponsor examples alongside the product pricing model the app supports commercially.
+          This page shows example sponsor packages from the bundled kits alongside a simple product pricing model.
         </p>
       </div>
 
@@ -80,16 +80,16 @@ export function PricingShowcase() {
           <CardHeader>
             <div className="flex items-center gap-3">
               <BriefcaseBusiness className="size-5 text-primary" />
-              <CardTitle>Why sponsors pay premium rates</CardTitle>
+              <CardTitle>Why structured packages help</CardTitle>
             </div>
             <CardDescription>
-              Media kits that explain fit, deliverables, and audience quality reduce friction in sponsor procurement and approvals.
+              Clear packages make it easier for a brand team to understand fit, scope, and delivery.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4 text-sm leading-7 text-muted-foreground">
             <div className="rounded-[24px] border border-white/10 bg-black/10 p-5">
-              <p className="font-medium text-foreground">Clear package packaging</p>
-              <p>Pre-structured cards make rate justification feel intentional instead of improvised.</p>
+              <p className="font-medium text-foreground">Clear package structure</p>
+              <p>Pre-structured cards help explain what is included before the conversation gets stuck on price.</p>
             </div>
             <div className="rounded-[24px] border border-white/10 bg-black/10 p-5">
               <p className="font-medium text-foreground">Sharper partner proof</p>
@@ -102,16 +102,16 @@ export function PricingShowcase() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/6">
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <BadgeDollarSign className="size-5 text-primary" />
-              <CardTitle>CreatorDeck SaaS monetization thesis</CardTitle>
-            </div>
-            <CardDescription>
-              The app is positioned as a premium workflow tool for creator revenue ops, not just a free profile builder.
-            </CardDescription>
-          </CardHeader>
+          <Card className="bg-white/6">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <BadgeDollarSign className="size-5 text-primary" />
+                <CardTitle>Product pricing reference</CardTitle>
+              </div>
+              <CardDescription>
+                A straightforward way to frame the product if it moves beyond a local demo.
+              </CardDescription>
+            </CardHeader>
           <CardContent className="grid gap-4">
             {productPricing.map((tier) => (
               <div key={tier.name} className="rounded-[24px] border border-white/10 bg-black/10 p-5">
@@ -127,9 +127,9 @@ export function PricingShowcase() {
             <div className="rounded-[24px] border border-primary/25 bg-primary/10 p-5 text-sm leading-7 text-muted-foreground">
               <div className="mb-2 flex items-center gap-2 font-medium text-foreground">
                 <Sparkles className="size-4 text-primary" />
-                Upsell path
+                Possible expansion
               </div>
-              White-label agency decks, PDF exports, CRM hooks, and share analytics are natural paid upgrades when you add a backend later.
+              White-label decks, export flows, analytics, and integrations would fit naturally if the product adds a backend later.
             </div>
           </CardContent>
         </Card>

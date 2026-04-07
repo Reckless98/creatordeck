@@ -3,6 +3,14 @@ import { z } from "zod";
 import type { CreatorKit, SponsorPackage, TemplateId } from "@/lib/types";
 import { splitTextareaLines } from "@/lib/utils";
 
+export const builderFieldArrayLimits = {
+  ageBreakdown: { min: 2, max: 6 },
+  platforms: { min: 1, max: 6 },
+  sponsorPackages: { min: 1, max: 6 },
+  partners: { min: 0, max: 8 },
+  testimonials: { min: 0, max: 4 }
+} as const;
+
 const sponsorPackageSchema = z.object({
   name: z.string().min(2),
   price: z.number().min(500),
@@ -34,7 +42,8 @@ export const builderFormSchema = z.object({
         value: z.number().min(0).max(100)
       })
     )
-    .length(4),
+    .min(builderFieldArrayLimits.ageBreakdown.min)
+    .max(builderFieldArrayLimits.ageBreakdown.max),
   platforms: z
     .array(
       z.object({
@@ -44,8 +53,12 @@ export const builderFormSchema = z.object({
         highlight: z.string().min(3)
       })
     )
-    .length(3),
-  sponsorPackages: z.array(sponsorPackageSchema).length(3),
+    .min(builderFieldArrayLimits.platforms.min)
+    .max(builderFieldArrayLimits.platforms.max),
+  sponsorPackages: z
+    .array(sponsorPackageSchema)
+    .min(builderFieldArrayLimits.sponsorPackages.min)
+    .max(builderFieldArrayLimits.sponsorPackages.max),
   partners: z
     .array(
       z.object({
@@ -53,7 +66,7 @@ export const builderFormSchema = z.object({
         label: z.string().min(2)
       })
     )
-    .length(4),
+    .max(builderFieldArrayLimits.partners.max),
   testimonials: z
     .array(
       z.object({
@@ -63,7 +76,7 @@ export const builderFormSchema = z.object({
         company: z.string().min(2)
       })
     )
-    .length(2)
+    .max(builderFieldArrayLimits.testimonials.max)
 });
 
 export type BuilderFormValues = z.infer<typeof builderFormSchema>;

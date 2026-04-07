@@ -37,6 +37,8 @@ export function KitShowcase({
   const preset = getTemplatePreset(kit.template);
   const isCompact = mode === "compact";
   const isPresentation = mode === "presentation";
+  const hasPartners = kit.partners.length > 0;
+  const hasTestimonials = kit.testimonials.length > 0;
 
   return (
     <motion.div
@@ -258,56 +260,60 @@ export function KitShowcase({
             </div>
           </div>
 
-          <div className={cn("grid gap-5", isCompact ? "xl:grid-cols-1" : "xl:grid-cols-[0.95fr_1.05fr]")}>
-            <Card className="bg-black/18 text-white">
-              <CardHeader>
-                <CardTitle className="text-white">Trusted by brand teams</CardTitle>
-                <CardDescription className="text-white/60">
-                  Logos read like quick-fit signals during sponsor review.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="grid gap-3 sm:grid-cols-2">
-                {kit.partners.map((partner) => (
-                  <div
-                    key={partner.name}
-                    className="rounded-[24px] border border-white/10 bg-white/5 px-4 py-5"
-                  >
-                    <p className="font-display text-2xl font-semibold text-white">{partner.name}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.22em] text-white/45">
-                      {partner.label}
-                    </p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            {!isCompact && (
-              <Card className="bg-black/18 text-white">
-                <CardHeader>
-                  <CardTitle className="text-white">Client proof</CardTitle>
-                  <CardDescription className="text-white/60">
-                    Testimonial snippets keep the deck commercial, not just pretty.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="grid gap-4">
-                  {kit.testimonials.map((testimonial) => (
-                    <div
-                      key={`${testimonial.company}-${testimonial.name}`}
-                      className="rounded-[24px] border border-white/10 bg-white/5 p-5"
-                    >
-                      <p className="text-sm leading-7 text-white/74">&ldquo;{testimonial.quote}&rdquo;</p>
-                      <div className="mt-4 text-sm text-white/55">
-                        <p className="font-medium text-white">{testimonial.name}</p>
-                        <p>
-                          {testimonial.role} • {testimonial.company}
+          {(hasPartners || (!isCompact && hasTestimonials)) && (
+            <div className={cn("grid gap-5", isCompact ? "xl:grid-cols-1" : "xl:grid-cols-[0.95fr_1.05fr]")}>
+              {hasPartners && (
+                <Card className="bg-black/18 text-white">
+                  <CardHeader>
+                    <CardTitle className="text-white">Trusted by brand teams</CardTitle>
+                    <CardDescription className="text-white/60">
+                      Logos read like quick-fit signals during sponsor review.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="grid gap-3 sm:grid-cols-2">
+                    {kit.partners.map((partner) => (
+                      <div
+                        key={partner.name}
+                        className="rounded-[24px] border border-white/10 bg-white/5 px-4 py-5"
+                      >
+                        <p className="font-display text-2xl font-semibold text-white">{partner.name}</p>
+                        <p className="mt-1 text-xs uppercase tracking-[0.22em] text-white/45">
+                          {partner.label}
                         </p>
                       </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-            )}
-          </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+
+              {!isCompact && hasTestimonials && (
+                <Card className="bg-black/18 text-white">
+                  <CardHeader>
+                    <CardTitle className="text-white">Client proof</CardTitle>
+                    <CardDescription className="text-white/60">
+                      Testimonial snippets keep the deck commercial, not just pretty.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="grid gap-4">
+                    {kit.testimonials.map((testimonial) => (
+                      <div
+                        key={`${testimonial.company}-${testimonial.name}`}
+                        className="rounded-[24px] border border-white/10 bg-white/5 p-5"
+                      >
+                        <p className="text-sm leading-7 text-white/74">&ldquo;{testimonial.quote}&rdquo;</p>
+                        <div className="mt-4 text-sm text-white/55">
+                          <p className="font-medium text-white">{testimonial.name}</p>
+                          <p>
+                            {testimonial.role} • {testimonial.company}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          )}
 
           {isPresentation ? (
             <div className="grid gap-4 rounded-[28px] border border-white/10 bg-black/25 p-5 md:grid-cols-3">

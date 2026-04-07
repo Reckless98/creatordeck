@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -6,10 +7,33 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { bundledExampleOptions, getExampleKitBySlug } from "@/lib/demo-kits";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return bundledExampleOptions.map((example) => ({
     slug: example.slug
   }));
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const kit = getExampleKitBySlug(slug);
+
+  if (!kit) {
+    return {
+      title: "Example not found",
+      description: "The requested bundled example kit does not exist."
+    };
+  }
+
+  return {
+    title: `${kit.creatorName} example`,
+    description: `Explore the bundled ${kit.creatorName} creator kit and its ${kit.niche.toLowerCase()} positioning.`
+  };
 }
 
 export default async function ExampleKitPage({

@@ -18,11 +18,15 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CreatorDeck",
-  description: "Premium sponsor-ready media kit builder for creators and agencies.",
+  title: {
+    default: "CreatorDeck",
+    template: "%s | CreatorDeck"
+  },
+  description: "Build and present creator media kits with live editing, bundled examples, and sponsor-facing preview routes.",
   openGraph: {
     title: "CreatorDeck",
-    description: "Build sponsor-ready media kits with a premium live builder and elegant presentation views."
+    description:
+      "Build and present creator media kits with live editing, bundled examples, and sponsor-facing preview routes."
   }
 };
 

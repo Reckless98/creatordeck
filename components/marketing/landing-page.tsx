@@ -13,19 +13,19 @@ import { sampleCreatorKits } from "@/lib/demo-kits";
 const featureCards = [
   {
     title: "Live media kit builder",
-    description: "Edit audience proof, sponsorship packages, testimonials, and template styling side by side."
+    description: "Edit audience proof, sponsorship packages, testimonials, and styling in one place."
   },
   {
-    title: "Sponsor-ready aesthetics",
-    description: "Designed like a premium sales deck, not a student template. Smooth motion, real hierarchy, cleaner close-rate energy."
+    title: "Presentation-focused layout",
+    description: "The deck reads cleanly on screen, in review, and in a live sponsor conversation."
   },
   {
     title: "Template switching",
-    description: "Move between editorial, luxury keynote, and glossy campaign modes without losing your kit structure."
+    description: "Switch visual direction without rebuilding the underlying kit."
   },
   {
     title: "Share and preview flows",
-    description: "Public preview, examples, and presentation mode make sponsor calls and agency handoff dramatically easier."
+    description: "Preview, examples, and share mode cover the common handoff and review paths."
   }
 ];
 
@@ -42,14 +42,14 @@ export function LandingPage() {
           transition={{ duration: 0.55 }}
         >
           <Badge className="w-fit" variant="highlight">
-            Premium sponsor-ready media kit builder
+            Creator media kit builder
           </Badge>
           <div className="space-y-5">
             <h1 className="font-display text-5xl font-semibold leading-[0.95] text-balance text-foreground sm:text-6xl xl:text-7xl">
-              Creator portfolios that feel ready for the brand team boardroom.
+              Media kits built for sponsor conversations.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-              CreatorDeck turns creator stats, packages, partner proof, and presentation polish into a sponsor-facing deck you can actually sell with.
+              CreatorDeck turns creator stats, packages, and proof into a deck you can edit live, review internally, and share with brands.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -65,7 +65,7 @@ export function LandingPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             <StatColumn value="7 routes" label="From landing to share mode" />
-            <StatColumn value="3 templates" label="Bundled premium directions" />
+            <StatColumn value="3 templates" label="Bundled visual directions" />
             <StatColumn value="0 backend" label="Runs locally with npm" />
           </div>
         </motion.div>
@@ -83,9 +83,9 @@ export function LandingPage() {
         <div className="glass-panel rounded-[32px] p-8 md:p-10">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div className="space-y-4">
-              <p className="section-kicker">What makes it feel sellable</p>
+              <p className="section-kicker">Why it works</p>
               <h2 className="font-display text-4xl font-semibold leading-tight text-foreground">
-                The product is structured like a pitch surface, not a portfolio scrapbook.
+                Structured like a working sales deck, not a generic profile page.
               </h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -135,7 +135,7 @@ export function LandingPage() {
               <p className="section-kicker">Bundled examples</p>
               <CardTitle>Three creator archetypes included out of the box</CardTitle>
               <CardDescription>
-                Travel luxury, creator-tech, and editorial beauty kits are bundled so the product feels alive the moment it boots.
+                Travel, creator-tech, and editorial beauty kits are bundled so the app is immediately usable.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
@@ -159,25 +159,25 @@ export function LandingPage() {
 
           <Card className="bg-white/6">
             <CardHeader>
-              <p className="section-kicker">Who it sells to</p>
-              <CardTitle>Perfect for creators and agencies closing premium partnerships</CardTitle>
+              <p className="section-kicker">Who it helps</p>
+              <CardTitle>Useful for independent creators, managers, and small agencies</CardTitle>
               <CardDescription>
-                The deck structure supports one-off campaigns, retainers, launch kits, talent rosters, and brand-facing proposal reviews.
+                The current flows cover one-off campaigns, retainers, internal review, and sponsor-facing walkthroughs.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
               <div className="flex items-start gap-3 rounded-[24px] border border-white/10 bg-black/15 p-4">
                 <ChartNoAxesCombined className="mt-1 size-5 text-primary" />
                 <div>
-                  <p className="font-medium text-foreground">Stronger sponsorship positioning</p>
-                  <p>Lead with proof, clarity, and polished rates instead of sending a loose PDF after the call.</p>
+                  <p className="font-medium text-foreground">Clearer sponsor positioning</p>
+                  <p>Lead with proof, scope, and rates instead of sending a loose PDF after the call.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-[24px] border border-white/10 bg-black/15 p-4">
                 <Sparkles className="mt-1 size-5 text-primary" />
                 <div>
                   <p className="font-medium text-foreground">Faster internal approvals</p>
-                  <p>Agencies and brand teams can evaluate fit, scope, and price quickly because the kit is structured for decision-makers.</p>
+                  <p>Teams can evaluate fit, scope, and price quickly because the kit is laid out for review.</p>
                 </div>
               </div>
             </CardContent>
@@ -187,16 +187,16 @@ export function LandingPage() {
 
       <section className="container py-16">
         <div className="glass-panel rounded-[36px] px-8 py-10 text-center md:px-12">
-          <p className="section-kicker">Ready to ship sponsor-ready decks</p>
+          <p className="section-kicker">Ready to build</p>
           <h2 className="mx-auto mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight text-balance text-foreground md:text-5xl">
-            Open the builder, swap the template, and walk into your next sponsor conversation looking expensive.
+            Open the builder, adjust the kit, and review it in the same session.
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg">
-              <Link href="/builder">Start Building</Link>
+              <Link href="/builder">Open builder</Link>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <Link href="/pricing">See Pricing Examples</Link>
+              <Link href="/pricing">View pricing examples</Link>
             </Button>
           </div>
         </div>

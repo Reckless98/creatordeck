@@ -310,10 +310,12 @@ export const sampleCreatorKits: CreatorKit[] = [
 export const defaultCreatorKit = sampleCreatorKits[0];
 
 export const cloneKit = (kit: CreatorKit): CreatorKit =>
-  JSON.parse(JSON.stringify(kit)) as CreatorKit;
+  structuredClone(kit);
+
+const sampleCreatorKitMap = new Map(sampleCreatorKits.map((kit) => [kit.slug, kit]));
 
 export const getExampleKitBySlug = (slug: string) =>
-  sampleCreatorKits.find((kit) => kit.slug === slug);
+  sampleCreatorKitMap.get(slug);
 
 export const withTemplate = (kit: CreatorKit, template: TemplateId): CreatorKit => ({
   ...kit,
