@@ -1,69 +1,36 @@
 # CreatorDeck
+CreatorDeck helps creators build a sponsor-ready media kit from one working draft.
 
-CreatorDeck is a Next.js app for building creator media kits that feel presentable in a sponsor conversation, not just in a portfolio gallery.
+Most media kits get stitched together from analytics screenshots, old PDFs, rate cards, and notes in chat. CreatorDeck keeps the profile, audience story, packages, templates, and share view in one flow so a creator can update the deck quickly before sending it out.
 
-## What It Includes
+## Features
+- Guided builder for profile, audience, metrics, offers, and brand details
+- Form validation with `react-hook-form` and `zod`
+- Preview route for checking the full kit before sharing
+- Sponsor-facing share mode with a cleaner presentation layout
+- Template switching to change the visual direction without re-entering data
+- Pricing page for package examples and offer structure
+- Bundled examples at `/examples/[slug]` for quick reference
+- Local persistence so the active kit survives refreshes
+- Runs entirely from local data with no backend setup
 
-- A landing page that introduces the product and links into the working app
-- A live builder backed by `react-hook-form` and `zod`
-- Preview and presentation routes for sponsor-facing review
-- Bundled example kits at `/examples/[slug]`
-- Template switching, pricing examples, and local persistence
+Tech stack: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS, Radix UI primitives, React Hook Form, Zod, Recharts, Framer Motion.
 
 ## Routes
+- `/` landing page
+- `/builder` edit the active media kit
+- `/preview`, `/share` review and presentation modes
+- `/templates`, `/pricing` template and package views
+- `/examples/[slug]` bundled example kits
 
-- `/` overview
-- `/builder` edit the active kit
-- `/preview` review the current kit
-- `/share` simplified presentation mode
-- `/templates` switch visual direction
-- `/pricing` inspect package examples
-- `/examples/[slug]` open bundled sample kits
-
-## Tech Stack
-
-- Next.js 16 App Router
-- React 19
-- TypeScript
-- Tailwind CSS
-- shadcn/ui primitives
-- Recharts
-- Framer Motion
-
-## Local Development
-
-Requirements:
-
-- Node.js 20+
-- npm
-
-Install dependencies:
-
+## Development
 ```bash
 npm install
-```
-
-Start the dev server:
-
-```bash
 npm run dev
 ```
+Open `http://localhost:3000`.
 
-Run the full verification set:
+## Testing
+`npm test`
 
-```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
-```
-
-## Notes
-
-- The app is intentionally backend-free today and stores the active kit in local storage.
-- Example kits are included so the builder, preview, and share routes are usable immediately.
-- Invalid example slugs resolve to a clean not-found state.
-
-## License
-
-MIT
+Build with `npm run build`.
